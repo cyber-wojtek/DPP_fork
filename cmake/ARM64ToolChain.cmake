@@ -50,6 +50,6 @@ EXECUTE_PROCESS(COMMAND sudo mv TMPFILE /etc/apt/sources.list)
 EXECUTE_PROCESS(COMMAND sudo dpkg --add-architecture aarch64)
 EXECUTE_PROCESS(COMMAND sudo apt-add-repository -y ppa:canonical-kernel-team/ppa)
 EXECUTE_PROCESS(COMMAND sudo apt update)
-EXECUTE_PROCESS(COMMAND sudo apt install -y cmake gcc-10-aarch64-linux-gnu g++-8-aarch64-linux-gnu libc6-dev-arm64-cross zlib1g-dev:arm64 libssl-dev:arm64 libopus-dev:arm64 libsodium-dev:arm64)
+EXECUTE_PROCESS(COMMAND sudo apt install -y cmake gcc-10-aarch64-linux-gnu g++-10-aarch64-linux-gnu libc6-dev-arm64-cross zlib1g-dev:arm64 libssl-dev:arm64 libopus-dev:arm64 libsodium-dev:arm64 libopus0:arm64 libsodium23:arm64 libssl1.1:arm64 zlib1g:arm64 libc6-dev:arm64)
 EXECUTE_PROCESS(COMMAND sudo mv /usr/lib/aarch64-linux-gnu/pkgconfig/libsodium.pc /usr/lib/pkgconfig/)
 
