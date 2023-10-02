@@ -2,8 +2,8 @@ SET(CMAKE_SYSTEM_NAME Linux)
 # Possibly needed tweak
 #SET(CMAKE_SYSTEM_PROCESSOR aarch64)
 
-SET(CMAKE_C_COMPILER ${COMPILER_ROOT}/aarch64-linux-gnu-gcc-8)
-SET(CMAKE_CXX_COMPILER ${COMPILER_ROOT}/aarch64-linux-gnu-g++-8)
+SET(CMAKE_C_COMPILER ${COMPILER_ROOT}/aarch64-linux-gnu-gcc-10)
+SET(CMAKE_CXX_COMPILER ${COMPILER_ROOT}/aarch64-linux-gnu-g++-10)
 
 # Below call is necessary to avoid non-RT problem.
 SET(CMAKE_LIBRARY_ARCHITECTURE aarch64-linux-gnu)
