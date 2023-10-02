@@ -41,10 +41,13 @@ SET(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} --sysroot=${RASPBERRY_ROOT_PAT
 
 SET(LD_LIBRARY_PATH ${RASPBERRY_KINETIC_PATH}/lib)
 
+SET(CPACK_DEBIAN_PACKAGE_ARCHITECTURE aarch64)
+SET(CPACK_RPM_PACKAGE_ARCHITECTURE aarch64)
+
 EXECUTE_PROCESS(COMMAND printf "deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal main multiverse restricted universe\ndeb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ focal main multiverse restricted universe\ndeb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ focal-updates main multiverse restricted universe\ndeb [arch=amd64] http://archive.ubuntu.com/ubuntu/ focal-updates main multiverse restricted universe\ndeb [arch=amd64] http://security.ubuntu.com/ubuntu/ focal-security main multiverse restricted universe" 
 	OUTPUT_FILE TMPFILE)
 EXECUTE_PROCESS(COMMAND sudo mv TMPFILE /etc/apt/sources.list)
-EXECUTE_PROCESS(COMMAND sudo dpkg --add-architecture arm64)
+EXECUTE_PROCESS(COMMAND sudo dpkg --add-architecture aarch64)
 EXECUTE_PROCESS(COMMAND sudo apt-add-repository -y ppa:canonical-kernel-team/ppa)
 EXECUTE_PROCESS(COMMAND sudo apt update)
 EXECUTE_PROCESS(COMMAND sudo apt install -y cmake gcc-8-aarch64-linux-gnu g++-8-aarch64-linux-gnu libc6-dev-arm64-cross zlib1g-dev:arm64 libssl-dev:arm64 libopus-dev:arm64 libsodium-dev:arm64)
