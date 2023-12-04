@@ -41,20 +41,27 @@ install(EXPORT "${DPP_EXPORT_NAME}" DESTINATION "${DPP_CMAKE_DIR}" NAMESPACE dpp
 
 # Prepare information for packaging into .zip, .deb, .rpm
 ## Project installation metadata
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 set(CPACK_PACKAGE_NAME   libdpp)	# Name of generated file
 set(CPACK_PACKAGE_VENDOR Brainbox.cc)	# Maker of the application
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "An incredibly lightweight C++ Discord library")
 set(CPACK_PACKAGE_DESCRIPTION "An incredibly lightweight C++ Discord library")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://dpp.dev/")
-set(CPACK_FREEBSD_PACKAGE_MAINTAINER "bsd@dpp.dev")
+set(CPACK_FREEBSD_PACKAGE_MAINTAINER "signing@dpp.dev")
 set(CPACK_FREEBSD_PACKAGE_ORIGIN "misc/libdpp")
 set(CPACK_RPM_PACKAGE_LICENSE "Apache 2.0")
-set(CPACK_PACKAGE_CONTACT "https://discord.gg/dpp") # D++ Development Discord
+set(CPACK_PACKAGE_CONTACT "Craig Edwards <signing@dpp.dev>")
 set(CPACK_DEBIAN_PACKAGE_DEPENDS "libsodium23 (>= 1.0.17-1), libopus0 (>= 1.3-1)")
 set(CPACK_RPM_PACKAGE_REQUIRES "libsodium >= 1.0.17, opus >= 1.3.1")
 set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "An incredibly lightweight C++ Discord library")
 set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 set(CPACK_DEBIAN_PACKAGE_SECTION "libs")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/../LICENSE")
+set(CPACK_SOURCE_INSTALLED_DIRECTORIES "${CMAKE_CURRENT_SOURCE_DIR}/..;/")
+
+set(CPACK_DEBIAN_RESOURCE_FILE_CHANGELOG "buildtools/change.log")
+set(CPACK_DEBIAN_UPDATE_CHANGELOG "True")
+set(DPUT_HOST "ppa:brainboxdotcc/dpp")
 
 ## Select generated based on what operating system
 if(WIN32)

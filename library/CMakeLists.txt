@@ -407,6 +407,10 @@ if(DPP_INSTALL)
 	# Setup information for packaging and distribution
 	include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/CPackSetup.cmake")
 
+	if (UPLOAD_PPA)
+		include("${CMAKE_CURRENT_SOURCE_DIR}/../cmake/UploadPPA.cmake")
+	endif()
+
 	# CPack initialization for distribution
 	include(CPack)
 endif()

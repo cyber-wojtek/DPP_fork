@@ -28,6 +28,7 @@ option(DPP_CORO "Experimental support for C++20 coroutines" OFF)
 option(DPP_USE_EXTERNAL_JSON "Use an external installation of nlohmann::json" OFF)
 option(DPP_USE_PCH "Use precompiled headers to speed up compilation" OFF)
 option(AVX_TYPE "Force AVX type for speeding up audio mixing" OFF)
+option(UPLOAD_PPA "Upload PPA" OFF)
 
 include(CheckCXXSymbolExists)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
