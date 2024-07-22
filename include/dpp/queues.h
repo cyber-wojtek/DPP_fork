@@ -362,7 +362,7 @@ public:
 	http_request_completion_t run(class cluster* owner);
 
 	/** @brief Returns true if the request is complete */
-	bool is_completed();
+	bool is_completed() const;
 };
 
 /**

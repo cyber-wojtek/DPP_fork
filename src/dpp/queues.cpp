@@ -99,7 +99,7 @@ void populate_result(const std::string &url, cluster* owner, http_request_comple
 }
 
 /* Returns true if the request has been made */
-bool http_request::is_completed()
+bool http_request::is_completed() const
 {
 	return completed;
 }
