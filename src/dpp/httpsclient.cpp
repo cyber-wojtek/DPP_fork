@@ -58,7 +58,7 @@ void https_client::connect()
 		map_headers += k + ": " + v + "\r\n";
 	}
 	if (this->sfd != SOCKET_ERROR) {
-		this->write(
+		this->socket_write(
 			this->request_type + " " + this->path + " HTTP/" + http_protocol + "\r\n"
 			"Host: " + this->hostname + "\r\n"
 			"pragma: no-cache\r\n"
@@ -284,7 +284,7 @@ bool https_client::handle_buffer(std::string &buffer)
 			case HTTPS_CONTENT:
 				body += buffer;
 				buffer.clear();
-				if (body.length() >= content_length) {
+				if (content_length == ULLONG_MAX || body.length() >= content_length) {
 					state = HTTPS_DONE;
 					this->close();
 					return false;
